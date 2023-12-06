@@ -1,0 +1,14 @@
+
+def funcion_1(cambiar_valor=0):
+
+    global numero 
+
+    numero = 4
+
+    if cambiar_valor != 0:
+
+        numero = 10
+
+
+
+
