@@ -3,7 +3,8 @@ from constantes import *
 from nivel_1 import nivel_1
 from pantalla_inicio import inicio_game
 from ranking import game_ranking
-
+import pygame
+import sys
 # ------------ ------------ ------------ ------------Codigo main ------------ ------------ ------------ ------------
 
 nivel_actual = 1
@@ -33,16 +34,25 @@ def cambiar_nivel(segundos_nivel_1=0,segundos_nivel_2=0,segundos_nivel_3=0,game_
     
 def main():
 
-    retorno = inicio_game()
+    try:
 
-    if retorno == 1: #Inicio del juego
-    
-        if nivel_actual == 1:
-            
-            nivel_1()
+        retorno = inicio_game()
 
-    elif retorno == 2:
-        game_ranking()
+        if retorno == 1: #Inicio del juego
+        
+            if nivel_actual == 1:
+                
+                nivel_1()
+
+        elif retorno == 2:
+            game_ranking()
+
+
+    except:
+
+        print("Se ha producido un error.")
+        pygame.quit()  # Cierra Pygame
+        sys.exit()     # Sale del programa
     
 if  __name__ == "__main__":
 

@@ -158,10 +158,16 @@ def nivel_4(segundos):
         controlar_rect(personaje)
 
         # Score
-        puntaje_score = fuente_score.render(f"Puntuacion: {personaje.puntaje}",True,pygame.Color("white"))
-        screen.blit(puntaje_score,(790,20))
-        nivel_actual = fuente_score.render(f"NIVEL ACTUAL: 4",True,pygame.Color("white"))
-        screen.blit(nivel_actual,(10,20))
+        try:
+            puntaje_score = fuente_score.render(f"Puntuacion: {personaje.puntaje}",True,pygame.Color("white"))
+            screen.blit(puntaje_score,(790,20))
+            nivel_actual = fuente_score.render(f"NIVEL ACTUAL: 1",True,pygame.Color("white"))
+            screen.blit(nivel_actual,(10,20))
+
+        except pygame.error:
+
+            pygame.quit()
+            sys.exit()
 
         texto_temporizador = fuente_score.render(f"TIEMPO DE JUEGO : {str(segundos)}",True,(255,255,255))
         screen.blit(texto_temporizador,(10,ALTO_VENTANA - 30))

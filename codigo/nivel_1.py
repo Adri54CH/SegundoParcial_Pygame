@@ -35,6 +35,8 @@ def nivel_1(game_over=0):
 
     timer_segundos = pygame.USEREVENT
     pygame.time.set_timer(timer_segundos,1000)
+
+
     for i in range(10):
 
         
@@ -165,11 +167,18 @@ def nivel_1(game_over=0):
         controlar_rect(personaje)
 
         # Score
-        
-        puntaje_score = fuente_score.render(f"Puntuacion: {personaje.puntaje}",True,pygame.Color("white"))
-        screen.blit(puntaje_score,(790,20))
-        nivel_actual = fuente_score.render(f"NIVEL ACTUAL: 1",True,pygame.Color("white"))
-        screen.blit(nivel_actual,(10,20))
+        try:
+            puntaje_score = fuente_score.render(f"Puntuacion: {personaje.puntaje}",True,pygame.Color("white"))
+            screen.blit(puntaje_score,(790,20))
+            nivel_actual = fuente_score.render(f"NIVEL ACTUAL: 1",True,pygame.Color("white"))
+            screen.blit(nivel_actual,(10,20))
+
+        except pygame.error:
+
+            pygame.quit()
+            sys.exit()
+
+            
 
         # Renderizado temporizador
 

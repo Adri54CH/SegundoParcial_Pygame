@@ -23,6 +23,8 @@ def getSurfaceFromSpriteSheet(path,columnas,filas):
             listaFotogramas.append(surface_fotograma)
 
     return listaFotogramas
+
+
 class Personaje:
 
     def __init__(self):
